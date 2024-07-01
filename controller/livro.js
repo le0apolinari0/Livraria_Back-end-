@@ -8,8 +8,9 @@ const { getTodosLivros, getLivroPorId, insereLivro, modificarLivro, deletaLivroP
      } catch (error) {
      res.status(500)
      res.send(error.message)
-     }
-     }
+      }
+    }
+
     function getLivro(req, res) {
       try {
         const id = req.params.id
@@ -32,6 +33,8 @@ const { getTodosLivros, getLivroPorId, insereLivro, modificarLivro, deletaLivroP
            insereLivro(livroNovo)
            res.status(201)
            res.send("Livro Adicionado com sucesso")
+           res.status(422)
+           res.send("O Campo nome é Obrigatorio")
         } catch (error) {
          res.status(500)
          res.send(error.message)
